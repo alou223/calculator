@@ -27,8 +27,8 @@ public class Main extends Application{
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.setTitle("Калькулятор");
-        stage.setWidth(300);
-        stage.setHeight(300);
+        stage.setWidth(365);
+        stage.setHeight(326);
         stage.show();
 
 //        // установка надписи

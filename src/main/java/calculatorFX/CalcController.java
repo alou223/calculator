@@ -5,8 +5,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 
-public class CalcController {
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
+import javax.script.ScriptException;
 
+public class CalcController {
     @FXML
     private Button button1;
     @FXML
@@ -27,7 +30,12 @@ public class CalcController {
     private Button button9;
     @FXML
     private Button buttonZero;
-
+    @FXML
+    private Button buttonDegree;
+    @FXML
+    private Button buttonDegree2;
+    @FXML
+    private Button buttonDegree3;
 
     @FXML
     private Button buttonPlus;
@@ -43,88 +51,142 @@ public class CalcController {
     private Button buttonClear;
     @FXML
     private Label LABEL;
+    @FXML
+    private Label LABEL2;
 
-    private int count = 0;
+    private double count = 0;
+    private String str = "";
     private double count1;
-    private double count2;
     private boolean countMinus = false;
     private boolean countPlus = false;
     private boolean countMultiply = false;
     private boolean countDivide = false;
+    private boolean countDegree = false;
+    private boolean countDegree2 = false;
+    private boolean countDegree3 = false;
 
     @FXML
     public void initialize() {
         button1.addEventHandler(MouseEvent.MOUSE_CLICKED, mouse -> {
-            calc(1); LABEL.setText("1");
+            str = str + "1";
+            calc(1); LABEL.setText(str);
         });
         button2.addEventHandler(MouseEvent.MOUSE_CLICKED, mouse -> {
-            calc(2); LABEL.setText("2");
+            str = str + "2";
+            calc(2); LABEL.setText(str);
         });
         button3.addEventHandler(MouseEvent.MOUSE_CLICKED, mouse -> {
-            calc(3); LABEL.setText("3");
+            str = str + "3";
+            calc(3); LABEL.setText(str);
         });
         button4.addEventHandler(MouseEvent.MOUSE_CLICKED, mouse -> {
-            calc(4); LABEL.setText("4");
+            str = str + "4";
+            calc(4); LABEL.setText(str);
         });
         button5.addEventHandler(MouseEvent.MOUSE_CLICKED, mouse -> {
-            calc(5); LABEL.setText("5");
+            str = str + "5";
+            calc(5); LABEL.setText(str);
         });
         button6.addEventHandler(MouseEvent.MOUSE_CLICKED, mouse -> {
-            calc(6); LABEL.setText("6");
+            str = str + "6";
+            calc(6); LABEL.setText(str);
         });
         button7.addEventHandler(MouseEvent.MOUSE_CLICKED, mouse -> {
-            calc(7); LABEL.setText("7");
+            str = str + "7";
+            calc(7); LABEL.setText(str);
         });
         button8.addEventHandler(MouseEvent.MOUSE_CLICKED, mouse -> {
-            calc(8); LABEL.setText("8");
+            str = str + "8";
+            calc(8); LABEL.setText(str);
         });
         button9.addEventHandler(MouseEvent.MOUSE_CLICKED, mouse -> {
-            calc(9); LABEL.setText("9");
+            str = str + "9";
+            calc(9); LABEL.setText(str);
         });
         buttonZero.addEventHandler(MouseEvent.MOUSE_CLICKED, mouse -> {
-            calc(0); LABEL.setText("0");
+            str = str + "0";
+            calc(0); LABEL.setText(str);
         });
 
 
         buttonPlus.addEventHandler(MouseEvent.MOUSE_CLICKED, mouse -> {
-            countPlus = true; LABEL.setText("+");
+            str = str + "+";
+            countPlus = true; LABEL.setText(str);
         });
         buttonMinus.addEventHandler(MouseEvent.MOUSE_CLICKED, mouse -> {
-            countMinus = true; LABEL.setText("-");
+            str = str + "-";
+            countMinus = true; LABEL.setText(str);
         });
         buttonMultiply.addEventHandler(MouseEvent.MOUSE_CLICKED, mouse -> {
-            countMultiply = true; LABEL.setText("*");
+            str = str + "*";
+            countMultiply = true; LABEL.setText(str);
         });
         buttonDivide.addEventHandler(MouseEvent.MOUSE_CLICKED, mouse -> {
-            countDivide = true; LABEL.setText("/");
+            str = str + "/";
+            countDivide = true; LABEL.setText(str);
         });
         buttonClear.addEventHandler(MouseEvent.MOUSE_CLICKED, mouse -> {
             count1 = 0;
-            count2 = 0;
             countMultiply = false;
             countPlus = false;
             countMinus = false;
             countDivide = false;
+            countDegree = false;
+            countDegree2 = false;
+            countDegree3 = false;
             LABEL.setText("");
+            LABEL2.setText("");
+            str = "";
         });
         buttonRavno.addEventHandler(MouseEvent.MOUSE_CLICKED, mouse -> {
-            double i = 0;
             if (countPlus) {
-                i = count1 + count2;
                 countPlus = false;
             } else if (countMinus ) {
-                i = count1 - count2;
                 countMinus = false;
             } else if (countMultiply) {
-                i = count1 * count2;
                 countMultiply = false;
             } else if (countDivide) {
-                i = count1 / count2;
                 countDivide = false;
             }
+            LABEL2.setText(String.valueOf(str));
+
+            try {
+                LABEL.setText(String.valueOf(calc2(str)));
+            } catch (ScriptException e) {
+                throw new RuntimeException(e);
+            }
+            try {
+                str = String.valueOf(calc2(str));
+            } catch (ScriptException e) {
+                throw new RuntimeException(e);
+            }
+        });
+        buttonDegree.addEventHandler(MouseEvent.MOUSE_CLICKED, mouse ->{
+            double i;
+            if (countDegree){}
+                i = count1 * count1;
+                countDegree = false;
+                LABEL.setText(String.valueOf(i));
 
 
+
+        });
+        buttonDegree2.addEventHandler(MouseEvent.MOUSE_CLICKED, mouse ->{
+            double i;
+            if(countDegree2){}
+            i = count1 * count1 * count1;
+            countDegree2 = false;
             LABEL.setText(String.valueOf(i));
+        });
+        buttonDegree3.addEventHandler(MouseEvent.MOUSE_CLICKED, mouse -> {
+            double i;
+            if (countDegree3){}
+                i = Math.sqrt(count1);
+                countDegree3 = false;
+                LABEL.setText(String.valueOf(i));
+
+
+
         });
 
     }
@@ -135,10 +197,15 @@ public class CalcController {
             count1 = i;
             count++;
         } else {
-            count2 = i;
             count = 0;
         }
     }
-
+private double calc2(String str) throws ScriptException {
+       double i1;
+    ScriptEngineManager mgr = new ScriptEngineManager();
+    ScriptEngine engine = mgr.getEngineByName("JavaScript");
+    i1 = (double) engine.eval(str);
+    return i1;
+}
 
 }

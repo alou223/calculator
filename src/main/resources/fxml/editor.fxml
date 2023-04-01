@@ -3,25 +3,33 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="calculatorFX.CalcController">
+<AnchorPane prefHeight="266.0" prefWidth="365.0" style="-fx-background-color: #2E3348;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="calculatorFX.CalcController">
    <children>
-       <Button fx:id="button1" layoutX="25.0" layoutY="70.0" prefHeight="30.0" prefWidth="40.0" text="1" />
-      <Button fx:id="button4" layoutX="25.0" layoutY="120.0" prefHeight="30.0" prefWidth="40.0" text="4" />
-      <Button fx:id="button6" layoutX="125.0" layoutY="120.0" prefHeight="30.0" prefWidth="40.0" text="6" />
-      <Button fx:id="button2" layoutX="75.0" layoutY="70.0" prefHeight="30.0" prefWidth="40.0" text="2" />
-      <Button fx:id="button9" layoutX="125.0" layoutY="170.0" prefHeight="30.0" prefWidth="40.0" text="9" />
-      <Button fx:id="button7" layoutX="25.0" layoutY="170.0" prefHeight="30.0" prefWidth="40.0" text="7" />
-      <Button fx:id="button5" layoutX="75.0" layoutY="120.0" prefHeight="30.0" prefWidth="40.0" text="5" />
-      <Button fx:id="buttonRavno" layoutX="175.0" layoutY="70.0" prefHeight="30.0" prefWidth="66.0" text="=" />
-      <Button fx:id="button3" layoutX="125.0" layoutY="70.0" prefHeight="30.0" prefWidth="40.0" text="3" />
-      <Button fx:id="button8" layoutX="75.0" layoutY="170.0" prefHeight="30.0" prefWidth="40.0" text="8" />
-      <Button fx:id="buttonPlus" layoutX="175.0" layoutY="120.0" prefHeight="30.0" prefWidth="66.0" text="+" />
-      <Button fx:id="buttonMinus" layoutX="175.0" layoutY="170.0" prefHeight="30.0" prefWidth="66.0" text="-" />
-      <Button fx:id="buttonZero" layoutX="75.0" layoutY="220.0" prefHeight="30.0" prefWidth="40.0" text="0" />
-      <Label fx:id="LABEL" layoutX="10.0" layoutY="10.0" prefHeight="51.0" prefWidth="221.0" text=":" />
-      <Button fx:id="buttonMultiply" layoutX="175.0" layoutY="220.0" prefHeight="30.0" prefWidth="66.0" text="*" />
-      <Button fx:id="buttonDivide" layoutX="125.0" layoutY="220.0" prefHeight="30.0" prefWidth="40.0" text="/" />
-      <Button fx:id="buttonClear" layoutX="25.0" layoutY="220.0" prefHeight="30.0" prefWidth="40.0" text="C" />
+       <Button fx:id="button1" layoutX="25.0" layoutY="70.0" prefHeight="30.0" prefWidth="40.0" style="-fx-background-color: #FFFFFF;" text="1" />
+      <Button fx:id="button4" layoutX="25.0" layoutY="120.0" prefHeight="30.0" prefWidth="40.0" style="-fx-background-color: #FFFFFF;" text="4" />
+      <Button fx:id="button6" layoutX="125.0" layoutY="120.0" prefHeight="30.0" prefWidth="40.0" style="-fx-background-color: #FFFFFF;" text="6" />
+      <Button fx:id="button2" layoutX="75.0" layoutY="70.0" prefHeight="30.0" prefWidth="40.0" style="-fx-background-color: #FFFFFF;" text="2" />
+      <Button fx:id="button9" layoutX="125.0" layoutY="170.0" prefHeight="30.0" prefWidth="40.0" style="-fx-background-color: #FFFFFF;" text="9" />
+      <Button fx:id="button7" layoutX="25.0" layoutY="170.0" prefHeight="30.0" prefWidth="40.0" style="-fx-background-color: #FFFFFF;" text="7" />
+      <Button fx:id="button5" layoutX="75.0" layoutY="120.0" prefHeight="30.0" prefWidth="40.0" style="-fx-background-color: #FFFFFF;" text="5" />
+      <Button fx:id="buttonRavno" layoutX="175.0" layoutY="70.0" prefHeight="30.0" prefWidth="66.0" style="-fx-background-color: #808080;" text="=" />
+      <Button fx:id="button3" layoutX="125.0" layoutY="70.0" prefHeight="30.0" prefWidth="40.0" style="-fx-background-color: #FFFFFF;" text="3" />
+      <Button fx:id="button8" layoutX="75.0" layoutY="170.0" prefHeight="30.0" prefWidth="40.0" style="-fx-background-color: #FFFFFF;" text="8" />
+      <Button fx:id="buttonPlus" layoutX="175.0" layoutY="120.0" prefHeight="30.0" prefWidth="66.0" style="-fx-background-color: #808080;" text="+" />
+      <Button fx:id="buttonMinus" layoutX="175.0" layoutY="170.0" prefHeight="30.0" prefWidth="66.0" style="-fx-background-color: #808080;" text="-" />
+      <Button fx:id="buttonZero" layoutX="75.0" layoutY="220.0" prefHeight="30.0" prefWidth="40.0" style="-fx-background-color: #FFFFFF;" text="0" />
+      <Label fx:id="LABEL2" layoutX="24.0" prefHeight="42.0" prefWidth="295.0" textFill="WHITE" />
+      <Label fx:id="LABEL" layoutX="25.0" layoutY="26.0" prefHeight="42.0" prefWidth="295.0" textFill="WHITE">
+         <font>
+            <Font size="25.0" />
+         </font></Label>
+      <Button fx:id="buttonMultiply" layoutX="175.0" layoutY="220.0" prefHeight="30.0" prefWidth="66.0" style="-fx-background-color: #808080;" text="*" />
+      <Button fx:id="buttonDivide" layoutX="125.0" layoutY="220.0" prefHeight="30.0" prefWidth="40.0" style="-fx-background-color: #808080;" text="/" />
+      <Button fx:id="buttonClear" layoutX="25.0" layoutY="220.0" prefHeight="30.0" prefWidth="40.0" style="-fx-background-color: #D2691E;" text="C" />
+      <Button fx:id="buttonDegree" layoutX="255.0" layoutY="70.0" prefHeight="30.0" prefWidth="66.0" style="-fx-background-color: #808080;" text="x^2" />
+      <Button fx:id="buttonDegree2" layoutX="255.0" layoutY="120.0" prefHeight="30.0" prefWidth="66.0" style="-fx-background-color: #808080;" text="x^3" />
+      <Button fx:id="buttonDegree3" layoutX="255.0" layoutY="170.0" prefHeight="30.0" prefWidth="66.0" style="-fx-background-color: #808080;" text="x 1/2" />
    </children>
 </AnchorPane>
